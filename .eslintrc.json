@@ -37,6 +37,15 @@
                 "ignoreClassNames": false,
                 "ignoreStyleProperties": false
             }
+        ],
+        "react/prop-types": [
+          2,
+            {
+                "ignore": [
+                    "style",
+                    "children"
+                ]
+            }
         ]
     },
     "parser": "babel-eslint"
