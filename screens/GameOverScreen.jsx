@@ -1,7 +1,7 @@
 import React from 'react';
 import { number, func } from 'prop-types';
 import {
-  View, StyleSheet, Button, Image,
+  View, StyleSheet, Button, Image, Text,
 } from 'react-native';
 
 import SuccessImage from '../assets/success.png';
@@ -10,6 +10,10 @@ import BodyText from '../components/BodyText';
 import Colors from '../constants/colors';
 
 const styles = StyleSheet.create({
+  hilight: {
+    color: Colors.primary,
+    fontFamily: 'open-sans-bold',
+  },
   image: {
     height: '100%',
     width: '100%',
@@ -22,6 +26,14 @@ const styles = StyleSheet.create({
     marginVertical: 30,
     overflow: 'hidden',
     width: 300,
+  },
+  resultContainer: {
+    marginHorizontal: 30,
+    marginVertical: 15,
+  },
+  resultText: {
+    fontSize: 20,
+    textAlign: 'center',
   },
   screen: {
     alignItems: 'center',
@@ -39,10 +51,14 @@ const GameOverScreen = ({ roundsNumber, userNumber, onRestart }) => (
         source={SuccessImage}
       />
     </View>
-    {/* eslint-disable-next-line react/jsx-one-expression-per-line */}
-    <BodyText>Number of rounds: {roundsNumber}</BodyText>
-    {/* eslint-disable-next-line react/jsx-one-expression-per-line */}
-    <BodyText>Number was: {userNumber}</BodyText>
+    <View style={styles.resultContainer}>
+      <BodyText style={styles.resultText}>
+        Your phone needed&nbsp;
+        <Text style={styles.hilight}>{roundsNumber}</Text>
+        &nbsp;rounds to guess the number&nbsp;
+        <Text style={styles.hilight}>{userNumber}</Text>
+      </BodyText>
+    </View>
     <Button title="NEW GAME" onPress={onRestart} />
   </View>
 );
