@@ -1,7 +1,7 @@
 import React from 'react';
 import { TextInput, StyleSheet } from 'react-native';
 
-import Colors from '../constants/colours';
+import Colors from '../constants/colors';
 
 const styles = StyleSheet.create({
   input: {

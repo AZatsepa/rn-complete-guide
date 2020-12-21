@@ -3,10 +3,11 @@ import { func } from 'prop-types';
 import {
   View, Text, StyleSheet, Button, TouchableWithoutFeedback, Keyboard, Alert,
 } from 'react-native';
-import Colors from '../constants/colours';
+import Colors from '../constants/colors';
 import Card from '../components/Card';
 import Input from '../components/Input';
 import NumberContainer from '../components/NumberContainer';
+import BodyText from '../components/BodyText';
 
 const styles = StyleSheet.create({
   button: {
@@ -37,6 +38,7 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
   title: {
+    fontFamily: 'open-sans-bold',
     fontSize: 20,
     marginVertical: 10,
   },
@@ -77,7 +79,7 @@ const StartGameScreen = ({ onStartGame }) => {
       <View style={styles.screen}>
         <Text style={styles.title}>Start a New Game!</Text>
         <Card style={styles.inputContainer}>
-          <Text>Select a Number</Text>
+          <BodyText>Select a Number</BodyText>
           <Input
             style={styles.input}
             blurOnSubmit
@@ -100,7 +102,7 @@ const StartGameScreen = ({ onStartGame }) => {
         {selectedNumber
         && (
           <Card style={styles.summaryContainer}>
-            <Text>You selected</Text>
+            <BodyText>You selected</BodyText>
             <NumberContainer>{selectedNumber}</NumberContainer>
             <Button title="START GAME" onPress={() => onStartGame(selectedNumber)} />
           </Card>

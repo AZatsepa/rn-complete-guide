@@ -2,7 +2,7 @@ import React from 'react';
 import { string } from 'prop-types';
 import { View, Text, StyleSheet } from 'react-native';
 
-import Colors from '../constants/colours';
+import Colors from '../constants/colors';
 
 const styles = StyleSheet.create({
   header: {

@@ -3,8 +3,8 @@ import { number, func } from 'prop-types';
 import {
   View, Text, StyleSheet, Button, Alert,
 } from 'react-native';
-import NumberContainer from './NumberContainer';
-import Card from './Card';
+import NumberContainer from '../components/NumberContainer';
+import Card from '../components/Card';
 
 const styles = StyleSheet.create({
   buttonContainer: {
