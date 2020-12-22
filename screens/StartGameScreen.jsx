@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { func } from 'prop-types';
 import {
-  View, Text, StyleSheet, Button, TouchableWithoutFeedback, Keyboard, Alert,
+  View, Text, StyleSheet, Button, TouchableWithoutFeedback, Keyboard, Alert, Dimensions,
 } from 'react-native';
 import Colors from '../constants/colors';
 import Card from '../components/Card';
@@ -12,7 +12,7 @@ import MainButton from '../components/MainButton';
 
 const styles = StyleSheet.create({
   button: {
-    width: 100,
+    width: Dimensions.get('window').width / 4,
   },
   buttonContainer: {
     flexDirection: 'row',
@@ -26,8 +26,9 @@ const styles = StyleSheet.create({
   },
   inputContainer: {
     alignItems: 'center',
-    maxWidth: '80%',
-    width: 300,
+    maxWidth: '95%',
+    minWidth: 300,
+    width: '80%',
   },
   screen: {
     alignItems: 'center',

@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { number, func } from 'prop-types';
 import {
-  View, Text, StyleSheet, Alert, FlatList,
+  View, Text, StyleSheet, Alert, FlatList, Dimensions,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import NumberContainer from '../components/NumberContainer';
@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
   buttonContainer: {
     flexDirection: 'row',
     justifyContent: 'space-around',
-    marginTop: 20,
+    marginTop: Dimensions.get('window').height > 600 ? 20 : 10,
     maxWidth: '90%',
     width: 400,
   },
@@ -57,7 +57,7 @@ const renderListItem = (listLength, itemData) => (
   <View style={styles.listItem}>
     <BodyText>
       #
-      {listLength - itemData.index}
+      {listLength + itemData.index}
       &nbsp;
     </BodyText>
     <BodyText>{itemData.item}</BodyText>

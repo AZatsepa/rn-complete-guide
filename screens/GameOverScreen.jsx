@@ -1,7 +1,7 @@
 import React from 'react';
 import { number, func } from 'prop-types';
 import {
-  View, StyleSheet, Image, Text,
+  View, StyleSheet, Image, Text, Dimensions, ScrollView,
 } from 'react-native';
 
 import SuccessImage from '../assets/success.png';
@@ -21,19 +21,19 @@ const styles = StyleSheet.create({
   },
   imageContainer: {
     borderColor: Colors.black,
-    borderRadius: 150,
+    borderRadius: (Dimensions.get('window').width * 0.7) / 2,
     borderWidth: 3,
-    height: 300,
-    marginVertical: 30,
+    height: Dimensions.get('window').width * 0.7,
+    marginVertical: Dimensions.get('window').height / 30,
     overflow: 'hidden',
-    width: 300,
+    width: Dimensions.get('window').width * 0.7,
   },
   resultContainer: {
     marginHorizontal: 30,
-    marginVertical: 15,
+    marginVertical: Dimensions.get('window').height / 40,
   },
   resultText: {
-    fontSize: 20,
+    fontSize: Dimensions.get('window').height > 400 ? 16 : 20,
     textAlign: 'center',
   },
   screen: {
@@ -44,24 +44,26 @@ const styles = StyleSheet.create({
 });
 
 const GameOverScreen = ({ roundsNumber, userNumber, onRestart }) => (
-  <View style={styles.screen}>
-    <BodyText>The Game Is Over!</BodyText>
-    <View style={styles.imageContainer}>
-      <Image
-        style={styles.image}
-        source={SuccessImage}
-      />
+  <ScrollView>
+    <View style={styles.screen}>
+      <BodyText>The Game Is Over!</BodyText>
+      <View style={styles.imageContainer}>
+        <Image
+          style={styles.image}
+          source={SuccessImage}
+        />
+      </View>
+      <View style={styles.resultContainer}>
+        <BodyText style={styles.resultText}>
+          Your phone needed&nbsp;
+          <Text style={styles.hilight}>{roundsNumber}</Text>
+          &nbsp;rounds to guess the number&nbsp;
+          <Text style={styles.hilight}>{userNumber}</Text>
+        </BodyText>
+      </View>
+      <MainButton onPress={onRestart}>NEW GAME</MainButton>
     </View>
-    <View style={styles.resultContainer}>
-      <BodyText style={styles.resultText}>
-        Your phone needed&nbsp;
-        <Text style={styles.hilight}>{roundsNumber}</Text>
-        &nbsp;rounds to guess the number&nbsp;
-        <Text style={styles.hilight}>{userNumber}</Text>
-      </BodyText>
-    </View>
-    <MainButton onPress={onRestart}>NEW GAME</MainButton>
-  </View>
+  </ScrollView>
 );
 
 GameOverScreen.propTypes = {
