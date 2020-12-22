@@ -1,12 +1,13 @@
 import React from 'react';
 import { number, func } from 'prop-types';
 import {
-  View, StyleSheet, Button, Image, Text,
+  View, StyleSheet, Image, Text,
 } from 'react-native';
 
 import SuccessImage from '../assets/success.png';
 
 import BodyText from '../components/BodyText';
+import MainButton from '../components/MainButton';
 import Colors from '../constants/colors';
 
 const styles = StyleSheet.create({
@@ -59,7 +60,7 @@ const GameOverScreen = ({ roundsNumber, userNumber, onRestart }) => (
         <Text style={styles.hilight}>{userNumber}</Text>
       </BodyText>
     </View>
-    <Button title="NEW GAME" onPress={onRestart} />
+    <MainButton onPress={onRestart}>NEW GAME</MainButton>
   </View>
 );
 

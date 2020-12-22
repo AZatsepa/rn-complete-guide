@@ -34,7 +34,8 @@
             {
                 "skip": [
                     "BodyText",
-                    "BodyText.Text.Text"
+                    "BodyText.Text.Text",
+                    "MainButton"
                 ]
             }
         ],
