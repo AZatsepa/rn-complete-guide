@@ -75,7 +75,7 @@ const renderListItem = (listLength, itemData) => (
 const GameScreen = ({ userChoice, onGameOver }) => {
   // ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.PORTRAIT);
   const initialGuess = generateRandomBetween(1, 100, userChoice);
-  const [pastGuesses, setPastGuesses] = useState([initialGuess]);
+  const [pastGuesses, setPastGuesses] = useState([initialGuess.toString()]);
   const [currentGuess, setCurrentGuess] = useState(initialGuess.toString());
   const [availableDeviceHeight, setAvailableDeviceHeight] = useState(Dimensions.get('window').height);
   const currentLow = useRef(1);
@@ -108,9 +108,8 @@ const GameScreen = ({ userChoice, onGameOver }) => {
     if (direction === 'lower') {
       currentHigh.current = parseInt(currentGuess, 10);
     } else {
-      currentLow.current = parseInt(currentGuess, 10) - 1;
+      currentLow.current = parseInt(currentGuess, 10) + 1;
     }
-
     const nextNumber = generateRandomBetween(currentLow.current, currentHigh.current, currentGuess);
     setCurrentGuess(nextNumber);
     setPastGuesses((curPastGuesses) => [nextNumber.toString(), ...curPastGuesses]);
