@@ -3,6 +3,7 @@ import { number, func } from 'prop-types';
 import {
   View, Text, StyleSheet, Alert, FlatList, Dimensions,
 } from 'react-native';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { Ionicons } from '@expo/vector-icons';
 import NumberContainer from '../components/NumberContainer';
 import Card from '../components/Card';

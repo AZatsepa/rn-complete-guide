@@ -1,6 +1,7 @@
 /* eslint-disable global-require */
 import React, { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import * as Font from 'expo-font';
 import { AppLoading } from 'expo';
 import Header from './components/Header';
