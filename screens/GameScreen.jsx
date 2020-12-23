@@ -5,6 +5,7 @@ import {
 } from 'react-native';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { Ionicons } from '@expo/vector-icons';
+// import * as ScreenOrientation from 'expo-screen-orientation';
 import NumberContainer from '../components/NumberContainer';
 import Card from '../components/Card';
 import MainButton from '../components/MainButton';
@@ -72,6 +73,7 @@ const renderListItem = (listLength, itemData) => (
 );
 
 const GameScreen = ({ userChoice, onGameOver }) => {
+  // ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.PORTRAIT);
   const initialGuess = generateRandomBetween(1, 100, userChoice);
   const [pastGuesses, setPastGuesses] = useState([initialGuess]);
   const [currentGuess, setCurrentGuess] = useState(initialGuess.toString());
