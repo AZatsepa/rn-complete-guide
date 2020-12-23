@@ -11,6 +11,9 @@ import MainButton from '../components/MainButton';
 import Colors from '../constants/colors';
 
 const styles = StyleSheet.create({
+  gameOverText: {
+    paddingVertical: 10,
+  },
   hilight: {
     color: Colors.primary,
     fontFamily: 'open-sans-bold',
@@ -40,13 +43,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     flex: 1,
     justifyContent: 'center',
+    paddingTop: 10,
   },
 });
 
 const GameOverScreen = ({ roundsNumber, userNumber, onRestart }) => (
   <ScrollView>
     <View style={styles.screen}>
-      <BodyText>The Game Is Over!</BodyText>
+      <BodyText style={styles.gameOverText}>The Game Is Over!</BodyText>
       <View style={styles.imageContainer}>
         <Image
           style={styles.image}
