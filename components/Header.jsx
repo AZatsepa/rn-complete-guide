@@ -1,13 +1,15 @@
 import React from 'react';
 import { string } from 'prop-types';
-import { View, Text, StyleSheet } from 'react-native';
+import {
+  View, Text, StyleSheet, Platform,
+} from 'react-native';
 
 import Colors from '../constants/colors';
 
 const styles = StyleSheet.create({
   header: {
     alignItems: 'center',
-    backgroundColor: Colors.primary,
+    backgroundColor: Platform.OS === 'android' ? Colors.grey : Colors.primary,
     height: 90,
     justifyContent: 'center',
     paddingTop: 36,
